@@ -1,0 +1,18 @@
+name: lamb-planificacion-dev
+
+services:
+  postgres-planificacion-dev:
+    image: postgres:16-alpine
+    container_name: lamb-postgres-planificacion-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: lamb_planificacion_db
+      POSTGRES_USER: lamb
+      POSTGRES_PASSWORD: lamb
+    ports:
+      - "15453:5432"
+    volumes:
+      - lamb_planificacion_dev_data:/var/lib/postgresql/data
+
+volumes:
+  lamb_planificacion_dev_data:

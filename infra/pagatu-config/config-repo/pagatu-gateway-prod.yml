@@ -15,6 +15,18 @@ spring:
               uri: lb://pagatu-catalogo-ms
               predicates:
                 - Path=/api/v1/productos/**
+            - id: lamb-planificacion-cursos
+              uri: lb://lamb-planificacion-ms
+              predicates:
+                - Path=/api/v1/cursos/**
+            - id: lamb-planificacion-secciones
+              uri: lb://lamb-planificacion-ms
+              predicates:
+                - Path=/api/v1/secciones/**
+            - id: lamb-matricula
+              uri: lb://lamb-matricula-ms
+              predicates:
+                - Path=/api/v1/matriculas/**
 
 eureka:
   instance:
