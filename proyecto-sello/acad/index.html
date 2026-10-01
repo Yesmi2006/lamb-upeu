@@ -1,0 +1,1788 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://262dist.github.io/pagatu/proyecto-sello/acad/">
+      
+      
+        <link rel="prev" href="../alcance-microservicios/">
+      
+      
+        <link rel="next" href="../produccion/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+  
+    <title>Pagatu - Sistema académico (referencia)</title>
+  
+
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sistema-universitario-integrado" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Pagatu" class="md-header__button md-logo" aria-label="Pagatu" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pagatu
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sistema académico (referencia)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/262dist/pagatu" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    262dist/pagatu
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Pagatu" class="md-nav__button md-logo" aria-label="Pagatu" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pagatu
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/262dist/pagatu" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    262dist/pagatu
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guía de Proyecto Sello
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guía de Proyecto Sello
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guía del proyecto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brief/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brief técnico (plantilla)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Producto U1 (plantilla-ejemplo)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Producto U2 (plantilla-ejemplo)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Producto U3 / Producto Final (plantilla-ejemplo)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matriz-competencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz de competencias (ICACIT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alcance-microservicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Alcance por microservicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistema académico (referencia)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistema académico (referencia)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#como-implementarlo-monolito-modular-vs-microservicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo implementarlo: monolito modular vs. microservicios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cómo implementarlo: monolito modular vs. microservicios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-monolito-modular-un-solo-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Monolito modular — un solo despliegue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-microservicios-un-despliegue-por-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Microservicios — un despliegue por servicio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lo-que-no-cambia-entre-a-y-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lo que no cambia entre A y B
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c3-dentro-de-un-moduloservicio-dos-formas-de-organizarlo-zoom-a-curriculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C3: dentro de un módulo/servicio — dos formas de organizarlo (zoom a currículo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-aplicada-academico-financiero-y-el-resto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisión aplicada: académico, financiero y el resto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c2-real-base-cores-excepciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C2 real: base + cores + excepciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../produccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistema de producción y comercialización (referencia)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Silabos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Silabos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../silabo_dist_2026_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Silabo 2026-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../silabo_dist_2026_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Silabo 2026-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I. Sistema distribuido base orientado a producción
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    I. Sistema distribuido base orientado a producción
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S01_Construccion_Servicio_Base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S1 - Construcción de un servicio base para un sistema distribuido
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S02_Configuracion_Centralizada_Ambientes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S2 - Gestión centralizada de configuración y ambientes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S03_Registro_Descubrimiento_Ejecucion_Concurrente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S3 - Registro, descubrimiento y ejecución concurrente de servicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S04_Punto_Unico_Acceso_Distribucion_Trafico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S4 - Punto único de acceso y distribución de tráfico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S05_Evaluacion_Unidad_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S5 - Evaluación de la Unidad I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    II. Sistema distribuido robusto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    II. Sistema distribuido robusto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S06_Comunicacion_Sincrona_Resiliente/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S6 - Comunicación síncrona resiliente entre servicios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S12_Evaluacion_Unidad_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S12 - Evaluación de la Unidad II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    III. Validación y consolidación del producto del curso
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    III. Validación y consolidación del producto del curso
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S15_Evaluacion_Unidad_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S15 - Evaluación de la Unidad III
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#como-implementarlo-monolito-modular-vs-microservicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cómo implementarlo: monolito modular vs. microservicios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cómo implementarlo: monolito modular vs. microservicios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-monolito-modular-un-solo-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Monolito modular — un solo despliegue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-microservicios-un-despliegue-por-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Microservicios — un despliegue por servicio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lo-que-no-cambia-entre-a-y-b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lo que no cambia entre A y B
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c3-dentro-de-un-moduloservicio-dos-formas-de-organizarlo-zoom-a-curriculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C3: dentro de un módulo/servicio — dos formas de organizarlo (zoom a currículo)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-aplicada-academico-financiero-y-el-resto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decisión aplicada: académico, financiero y el resto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c2-real-base-cores-excepciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C2 real: base + cores + excepciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="sistema-universitario-integrado">Sistema Universitario Integrado<a class="headerlink" href="#sistema-universitario-integrado" title="Permanent link">&para;</a></h1>
+<p><strong>Figura 1. Los 22 dominios del Sistema Universitario Integrado</strong></p>
+<div class="highlight"><pre><span></span><code> ┌───────────────────────────┐                   ┌───────────────────────────┐
+ │ 1. INSTITUCIONAL          │                   │ 2. PERSONAS               │
+ │ Y ORGANIZACIÓN            │      ┌─────┐      │                           │
+ │ institución, campus,      │      │ 22  │      │ persona, identificación,  │
+ │ sedes, facultades,        │      └─────┘      │ datos personales          │
+ │ escuelas, programas,      │        │          │ contactos                 │
+ │ periodos, calendarios     │        │          │ documentos                │
+ └─────────────┬─────────────┘        │          └─────────────┬─────────────┘
+               │                      │                        │
+               └──────────────────────┬────────────────────────┘
+                                      │
+                       ┌──────────────┴──────────────┐
+                       │                             │
+                       ▼                             ▼
+            ┌─────────────────────┐      ┌────────────────────────┐
+            │ 3. ADMISIÓN         │      │ 4. CURRÍCULO           │
+            │ E INGRESO           │      │                        │
+            │ prospectos,         │      │ programas, planes,     │
+            │ postulantes,        │      │ versiones, asignaturas,│
+            │ evaluaciones,       │      │ créditos, requisitos,  │
+            │ resultados, ingreso │      │ equivalencias          │
+            └──────────┬──────────┘      └───────────┬────────────┘
+                       │                             │
+                       └──────────────┬──────────────┘
+                                      ▼
+                  ┌──────────────────────────────────┐
+                  │ 5. PLANIFICACIÓN Y OFERTA        │
+                  │ ACADÉMICA                        │
+                  │ cursos, secciones, docentes,     │
+                  │ horarios, aulas, cupos,          │
+                  │ modalidad, carga docente         │
+                  └────────────────┬─────────────────┘
+                                   │
+                                   ▼
+                         ┌─────────────────────┐
+                         │ 6. MATRÍCULA        │
+                         │ inscripción,        │
+                         │ retiros, cambios,   │
+                         │ reservas, reglas,   │
+                         │ bloqueos            │
+                         └──────────┬──────────┘
+                                    │
+              ┌─────────────────────┼─────────────────────┐
+              │                     │                     │
+              ▼                     ▼                     ▼
+ ┌────────────────────────┐ ┌──────────────────────┐ ┌──────────────────────┐
+ │ 7. EVALUACIÓN Y        │ │ 9. FINANZAS DEL      │ │ 13. LMS /            │
+ │ CIERRE ACADÉMICO       │ │ ESTUDIANTE           │ │ APRENDIZAJE          │
+ │                        │ │                      │ │                      │
+ │ evaluaciones, notas,   │ │ matrícula, enseñanza │ │ contenidos, tareas,  │
+ │ actas, rectificaciones,│ │ derechos académicos, │ │ foros, evaluaciones, │
+ │ cierre                 │ │ becas, descuentos    │ │ recursos, seguimiento│
+ └────────────┬───────────┘ └──────────┬───────────┘ └──────────────────────┘
+              │                        │
+              ▼                        ▼
+ ┌────────────────────────┐ ┌────────────────────────────┐
+ │ 8. TRAYECTORIA         │ │ 11. INGRESOS, COBRANZA     │
+ │ ACADÉMICA              │ │ Y PAGOS                    │
+ │                        │ │                            │
+ │ historial*, promedio,  │ │ cargos, cuentas por        │
+ │ créditos, avance,      │ │ cobrar, caja, pagos,       │
+ │ convalidaciones,       │ │ pasarelas, bancos,         │
+ │ reconocimientos        │ │ devoluciones, comprobantes │
+ └────────────┬───────────┘ └────────────┬───────────────┘
+              │                          │
+              ▼                          ▼
+ ┌────────────────────────┐       ┌─────────────────────┐
+ │ 10. EGRESO, GRADOS,    │       │ ERP FINANCIERO      │
+ │ TÍTULOS Y              │       │ contabilidad,       │
+ │ CERTIFICACIÓN          │       │ tesorería, bancos,  │
+ │                        │       │ presupuesto, etc.   │
+ └────────────────────────┘       └─────────────────────┘
+
+
+        ═════════════ DOMINIOS INSTITUCIONALES PARALELOS ═════════════
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 12. EXTENSIÓN, EDUCACIÓN CONTINUA Y EVENTOS                          │
+ │ talleres, cursos libres, seminarios, congresos, jornadas,            │
+ │ diplomados, inscripciones, participantes y certificación             │
+ └───────────────────────────────┬──────────────────────────────────────┘
+                                 │
+                    ┌────────────┴────────────┐
+                    ▼                         ▼
+            13. LMS / APRENDIZAJE     11. INGRESOS,
+                                      COBRANZA Y PAGOS
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 14. SERVICIOS AL ESTUDIANTE                                          │
+ │ tutoría, asesoría académica, bienestar, trámites, solicitudes,       │
+ │ reclamos, acompañamiento y servicios universitarios                  │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 15. INVESTIGACIÓN                                                    │
+ │ proyectos, grupos, investigadores, semilleros, producción            │
+ │ científica, jornadas de investigación y repositorio                  │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 16. PRÁCTICAS, INTERNADO Y VINCULACIÓN                               │
+ │ prácticas preprofesionales, internado, centros de práctica,          │
+ │ supervisión, evaluación, evidencias y convenios                      │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 17. MOVILIDAD E INTERNACIONALIZACIÓN                                 │
+ │ intercambio, movilidad entrante/saliente, estancias,                 │
+ │ convenios y reconocimiento académico                                 │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 18. EGRESADOS Y SEGUIMIENTO                                          │
+ │ egresados, empleabilidad, bolsa de trabajo, seguimiento laboral,     │
+ │ alumni y relación con educación continua                             │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 19. CONVENIOS Y RELACIONES INSTITUCIONALES                           │
+ │ instituciones asociadas, convenios marco/específicos, vigencia,      │
+ │ responsables, compromisos y beneficios                               │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 20. BIBLIOTECA Y RECURSOS ACADÉMICOS                                 │
+ │ sistema bibliotecario, préstamos, recursos digitales,                │
+ │ bases de datos, repositorios e integración                           │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+        ═════════════════ CAPAS TRANSVERSALES ═════════════════
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 21. ANALÍTICA, INDICADORES Y BI                                      │
+ │ dashboards, rendimiento, retención, deserción, avance curricular,    │
+ │ demanda, carga docente, ingresos e indicadores institucionales       │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ ┌──────────────────────────────────────────────────────────────────────┐
+ │ 22. PLATAFORMA TRANSVERSAL                                           │
+ │ seguridad, roles, permisos, SSO, workflow, gestión documental,       │
+ │ firma, notificaciones, auditoría, parametrización, APIs,             │
+ │ integración e interoperabilidad                                      │
+ └──────────────────────────────────────────────────────────────────────┘
+
+
+ * El historial académico NO constituye una segunda fuente de verdad.
+   Se deriva de matrícula + evaluación + actas/cierre +
+   convalidaciones/reconocimientos y demás movimientos académicos.
+
+ 22 = su autorización (roles, permisos, auditoría) se integra a
+      1 y 2; su autenticación la resuelve un Identity Provider
+      externo (Keycloak) — ver C2, Figura 7.
+</code></pre></div>
+<h2 id="como-implementarlo-monolito-modular-vs-microservicios">Cómo implementarlo: monolito modular vs. microservicios<a class="headerlink" href="#como-implementarlo-monolito-modular-vs-microservicios" title="Permanent link">&para;</a></h2>
+<p>Cualquiera de los 22 dominios de arriba puede construirse dentro de <strong>un solo desplegable</strong> (monolito modular) o como <strong>servicios independientes</strong> (microservicios) — la elección no cambia el modelo de dominio, cambia solo dónde termina un proceso y empieza otro. Los dos diagramas de abajo se quedan a nivel <strong>contenedor</strong> (C2 del C4 model): módulos/servicios y sus bases de datos, y cómo se llaman entre sí — sin bajar al detalle interno de cada uno (eso ya se ve en ADS S04, 2.4).</p>
+<h3 id="a-monolito-modular-un-solo-despliegue">A. Monolito modular — un solo despliegue<a class="headerlink" href="#a-monolito-modular-un-solo-despliegue" title="Permanent link">&para;</a></h3>
+<p><strong>Figura 2. Monolito modular (C2 — contenedores)</strong></p>
+<pre class="mermaid"><code>flowchart TB
+    Cliente["Cliente"]
+    subgraph APP["Aplicación (1 despliegue, 1 proceso)"]
+        Curriculo["Módulo Currículo"]
+        Planificacion["Módulo Planificación"]
+        Matricula["Módulo Matrícula"]
+        Matricula --&gt;|"llamada Java directa"| Planificacion
+        Planificacion --&gt;|"llamada Java directa"| Curriculo
+    end
+    DB[("Base de datos&lt;br/&gt;schemas separados por módulo")]
+
+    Cliente --&gt; APP
+    Curriculo --&gt; DB
+    Planificacion --&gt; DB
+    Matricula --&gt; DB</code></pre>
+<p>Los tres módulos corren en el mismo proceso — <code>Matrícula</code> llama a <code>Planificación</code> y esta a <code>Currículo</code> con una llamada directa en Java (verificada en tiempo de compilación, p. ej. <code>ApplicationModules.verify()</code> de Spring Modulith), sin red de por medio.</p>
+<h3 id="b-microservicios-un-despliegue-por-servicio">B. Microservicios — un despliegue por servicio<a class="headerlink" href="#b-microservicios-un-despliegue-por-servicio" title="Permanent link">&para;</a></h3>
+<p><strong>Figura 3. Microservicios (C2 — contenedores)</strong></p>
+<pre class="mermaid"><code>flowchart TB
+    Cliente["Cliente"]
+    Gateway["API Gateway"]
+    Curriculo["Servicio Currículo"]
+    Planificacion["Servicio Planificación"]
+    Matricula["Servicio Matrícula"]
+    DBCurriculo[("BD Currículo")]
+    DBPlanificacion[("BD Planificación")]
+    DBMatricula[("BD Matrícula")]
+
+    Cliente --&gt; Gateway
+    Gateway --&gt; Curriculo
+    Gateway --&gt; Planificacion
+    Gateway --&gt; Matricula
+    Matricula -.-&gt;|"HTTP / mensajería"| Planificacion
+    Planificacion -.-&gt;|"HTTP / mensajería"| Curriculo
+    Curriculo --&gt; DBCurriculo
+    Planificacion --&gt; DBPlanificacion
+    Matricula --&gt; DBMatricula</code></pre>
+<p>Cada servicio es su propio proceso, con su propia base de datos — la comunicación ya no es una llamada Java, es red (HTTP/mensajería) a través del <em>API Gateway</em> o directo entre servicios, con todo lo que eso trae: <em>service discovery</em>, tolerancia a fallos, observabilidad distribuida.</p>
+<h3 id="lo-que-no-cambia-entre-a-y-b">Lo que no cambia entre A y B<a class="headerlink" href="#lo-que-no-cambia-entre-a-y-b" title="Permanent link">&para;</a></h3>
+<p>Un nivel más abajo (C3, no dibujado aquí — ver ADS S04, 2.4), cada módulo/servicio sigue siendo el mismo hexágono: dominio en el centro, puertos primarios/secundarios alrededor, adaptadores primarios/secundarios hacia el exterior. Lo único que cambia entre A y B es el borde exterior: si ese límite es una llamada de método dentro del mismo proceso, o una llamada de red entre dos procesos distintos. Por eso un módulo bien delimitado en A se puede extraer a microservicio en B sin rediseñar su interior: el puerto que ya tenía se convierte en el contrato de red.</p>
+<h3 id="c3-dentro-de-un-moduloservicio-dos-formas-de-organizarlo-zoom-a-curriculo">C3: dentro de un módulo/servicio — dos formas de organizarlo (zoom a <code>currículo</code>)<a class="headerlink" href="#c3-dentro-de-un-moduloservicio-dos-formas-de-organizarlo-zoom-a-curriculo" title="Permanent link">&para;</a></h3>
+<p>Dentro de cada caja "Módulo Currículo"/"Servicio Currículo" de A y B hay todavía una decisión más: cómo se organiza el código <em>adentro</em>. Dos opciones, no una — la misma comparación que hace ADS S04 (2.3-2.4), aplicada aquí al dominio académico.</p>
+<p><strong>Figura 4. Por capas (organización tradicional)</strong></p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph MODCAPAS["módulo: currículo (por capas)"]
+        direction TB
+        CTRL["Controller"] --&gt; SERV["Service"] --&gt; REPO["Repository"]
+    end</code></pre>
+<p><strong>Figura 5. Hexagonal (dominio aislado)</strong></p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph MOD["módulo: currículo (hexagonal)"]
+        direction TB
+        AP["adaptadores primarios&lt;br/&gt;(equivalente: Controller)"] --&gt; PP["puertos primarios&lt;br/&gt;(interfaz UseCase)"]
+        PP --&gt; DOM{{"dominio&lt;br/&gt;(equivalente: Service, puro)"}}
+        DOM --&gt; PS["puertos secundarios&lt;br/&gt;(interfaz RepositoryPort)"]
+        PS --&gt; AS["adaptadores secundarios&lt;br/&gt;(equivalente: Repository)"]
+    end
+
+    classDef dominio fill:#a8e6b0,stroke:#2f7d3c,stroke-width:2px,color:#111;
+    class DOM dominio;</code></pre>
+<p>Esto es lo que A y B esconden detrás de cada caja "Módulo Currículo"/"Servicio Currículo" — el mismo detalle que ADS S04 (2.4, Figura 6) muestra con adaptadores concretos (REST, CLI, eventos por el lado primario; PostgreSQL, API externa, correo por el secundario) en vez de las etiquetas genéricas de aquí.</p>
+<p><strong>Figura 6. Clean Architecture (si algún módulo llega a necesitarlo)</strong></p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph FRAMEWORKS["Frameworks y drivers (Spring, JPA, HTTP)"]
+        subgraph ADAPTERS["Adaptadores de interfaz&lt;br/&gt;(equivalente: Controller/Repository impl.)"]
+            subgraph USECASES["Casos de uso&lt;br/&gt;(orquestación)"]
+                ENTITIES["Entidades del dominio&lt;br/&gt;(reglas atómicas, más interno)"]
+            end
+        end
+    end</code></pre>
+<p>Hexagonal es, en la práctica, un caso concreto de aplicación de Clean Architecture (SACAViX Tech, ver ADS S04 2.5) — no un tercer patrón aparte. La diferencia real de Clean sobre Hexagonal es separar formalmente <strong>Entidades</strong> (reglas atómicas) de <strong>Casos de uso</strong> (orquestación entre varias entidades), algo que el "dominio" de la Figura 5 todavía trata como una sola pieza. Esa separación solo aporta claridad cuando un módulo acumula muchos casos de uso complejos — ningún dominio de los 22 la necesita hoy.</p>
+<p><strong>Tabla 1. Capas vs. Hexagonal vs. Clean, dentro de un módulo</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Por capas</th>
+<th>Hexagonal</th>
+<th>Clean Architecture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ventaja</strong></td>
+<td>Simple y rápido de construir — sin interfaces ni indirección extra, natural para CRUD.</td>
+<td>Dominio aislado de la tecnología: se prueba sin base de datos ni servidor HTTP, y se cambia de proveedor (BD, API externa) escribiendo solo un adaptador nuevo.</td>
+<td>Mismo aislamiento que Hexagonal, más una separación explícita entre reglas atómicas (Entidades) y orquestación (Casos de uso) — útil si un módulo tiene muchos casos de uso complejos que comparten las mismas entidades.</td>
+</tr>
+<tr>
+<td><strong>Desventaja</strong></td>
+<td>El dominio queda acoplado directo a Spring/JPA — cambiar de framework o de motor de base de datos obliga a tocar la lógica de negocio.</td>
+<td>Más clases e interfaces que mantener; <em>over-engineering</em> si el módulo es CRUD simple sin reglas de negocio reales que proteger.</td>
+<td>Todo el costo de Hexagonal, más una capa adicional (Casos de uso separados de Entidades) que la mayoría de los módulos no necesita — el <em>over-engineering</em> de Hexagonal, pero un escalón más arriba.</td>
+</tr>
+<tr>
+<td><strong>Cuándo usarla aquí</strong></td>
+<td>La mayoría de los 22 dominios, al menos al inicio — CRUD con validaciones simples (ej. Personas, Currículo, Matrícula en su versión básica).</td>
+<td>Un dominio que acumule reglas de negocio genuinamente complejas — candidatos reales: cálculo de créditos/convalidaciones (Trayectoria Académica), o reglas de cobranza con múltiples medios de pago (Ingresos y Pagos).</td>
+<td>Ninguno de los 22 dominios lo justifica hoy — quedaría reservado para un módulo que, además de complejo, acumule tantos casos de uso que separarlos de las entidades aporte claridad real.</td>
+</tr>
+</tbody>
+</table>
+<p>No es una decisión de una sola vez para todo el sistema: cada módulo se evalúa por separado, con el mismo criterio de ADS S04 (2.11) — capas por defecto, hexagonal cuando el dominio ya lo justifica, Clean solo si además el volumen de casos de uso lo pide.</p>
+<h2 id="decision-aplicada-academico-financiero-y-el-resto">Decisión aplicada: académico, financiero y el resto<a class="headerlink" href="#decision-aplicada-academico-financiero-y-el-resto" title="Permanent link">&para;</a></h2>
+<p><strong>Tabla 2. Decisión de arquitectura por grupo de dominios</strong></p>
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>Dominios (del mapa de 22)</th>
+<th>Organización interna</th>
+<th>Topología de despliegue</th>
+<th>Por qué</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Base (universal)</strong></td>
+<td>1-2: Institucional, Personas</td>
+<td><strong>Capas</strong></td>
+<td><strong>Monolito modular</strong> (A)</td>
+<td>La consulta literalmente todo lo demás — académico, administrativo, y hasta sistemas externos (Admisión, ERP). Extraerlo multiplicaría por 20 las llamadas de red del sistema (ver más arriba, "por qué no es microservicio").</td>
+</tr>
+<tr>
+<td><strong>Core académico</strong></td>
+<td>4-5, 7-8: Currículo, Planificación, Evaluación, Trayectoria</td>
+<td><strong>Capas</strong> por defecto</td>
+<td><strong>Monolito modular</strong> (A)</td>
+<td>CRUD con validaciones — sin regla de negocio que hoy justifique aislar el dominio (Tabla 1), ni volumen que justifique un despliegue aparte.</td>
+</tr>
+<tr>
+<td><strong>Core académico — excepción DDD</strong></td>
+<td>8. Trayectoria Académica</td>
+<td><strong>Hexagonal</strong>, si el cálculo de convalidaciones/reconocimientos crece</td>
+<td><strong>Monolito modular</strong> (A)</td>
+<td>Único candidato real dentro de académico a agregado DDD (mismo criterio que <code>ventas</code> en LP2 S4, ver ADS S04 2.11) — se evalúa cuando el código exista, no antes. Organización interna distinta no implica proceso aparte.</td>
+</tr>
+<tr>
+<td><strong>Académico — externo, por escala</strong></td>
+<td>3. Admisión</td>
+<td>No aplica — no se construye</td>
+<td><strong>Sistema externo</strong> (CRM, ej. Bitrix24)</td>
+<td>Examen de admisión y publicación de resultados concentran un pico de tráfico igual o mayor al de matrícula. En vez de construir y operar un microservicio propio solo para absorber ese pico, se contrata un CRM ya hecho para gestión de prospectos/postulantes — el equipo construye el adaptador de integración (registrar persona admitida en el núcleo), no el motor.</td>
+</tr>
+<tr>
+<td><strong>Académico — excepción de escala</strong></td>
+<td>6. Matrícula</td>
+<td><strong>Capas</strong> (sin cambio)</td>
+<td><strong>Candidato real a microservicio</strong> (B) desde el diseño, no solo "más adelante"</td>
+<td>Carga muy distinta al resto: en periodo de matrícula, miles de estudiantes inscriben al mismo tiempo, mientras el resto del sistema (Currículo, Personas) tiene tráfico normal — el caso de uso de manual de microservicios (SACAViX/ADS S04 2.7): "servicios con necesidades de escala muy distintas entre sí". No es complejidad de dominio (por eso sigue en Capas), es volumen de tráfico concentrado en el tiempo. A diferencia de Admisión, sí se construye propio — es el flujo central del negocio, no algo que un CRM genérico resuelva.</td>
+</tr>
+<tr>
+<td><strong>Core administrativo</strong></td>
+<td>9. Finanzas del Estudiante</td>
+<td><strong>Hexagonal desde el inicio</strong></td>
+<td><strong>Monolito modular al inicio</strong> — candidato a extraerse a microservicio (B) si el volumen de transacciones o un requisito de aislamiento (auditoría, PCI) lo justifica</td>
+<td>Dueño real del cargo y el saldo del estudiante (agregado DDD, ver más abajo) — crea el cargo, aplica descuentos, y su propio personal (<code>Cajero</code>) cobra presencial. Es el primer módulo del core administrativo — otros módulos administrativos propios, si el sistema los necesita, se agregarían a este mismo grupo.</td>
+</tr>
+<tr>
+<td><strong>Administrativo — canal</strong></td>
+<td>11. Ingresos, Cobranza y Pagos (acotado a <code>Pagos en línea</code>)</td>
+<td><strong>Hexagonal</strong> (servicio delgado)</td>
+<td><strong>Servicio propio, opcional aparte del monolito</strong></td>
+<td>Solo intermedia con la pasarela cuando el alumno paga online y confirma a <code>Finanzas del Estudiante</code> — no crea cargos ni decide descuentos. Caso de uso de manual (SACAViX, ver ADS S04 2.4): necesidad real de cambiar de pasarela sin tocar el cálculo de cargos, que vive en otro módulo.</td>
+</tr>
+<tr>
+<td><strong>Administrativo — externo</strong></td>
+<td>ERP Administrativo (contabilidad, RRHH, tesorería)</td>
+<td><strong>No se construye — se integra</strong></td>
+<td><strong>Sistema externo</strong> (fuera de los despliegues propios)</td>
+<td>Mismo criterio que Keycloak para seguridad y Admisión/Bitrix24: sistema de terceros, el trabajo del equipo es el adaptador de integración, no el motor contable/RRHH. Se nombra "Administrativo" (no "Financiero") justamente para no confundirlo con <code>Finanzas del Estudiante</code> — cubre además RRHH, que no es parte de ese módulo.</td>
+</tr>
+<tr>
+<td><strong>Resto</strong></td>
+<td>12, 14-20: Extensión, LMS, Servicios al Estudiante, Investigación, Prácticas, Movilidad, Egresados, Convenios, Biblioteca</td>
+<td><strong>Capas</strong></td>
+<td><strong>Monolito modular</strong> (A)</td>
+<td>Mismo perfil que académico: gestión de contenido/registros, sin regla de negocio ni volumen que aislar todavía.</td>
+</tr>
+<tr>
+<td><strong>Transversal</strong></td>
+<td>21. Analítica/BI, 22. Plataforma Transversal</td>
+<td><strong>No aplica el eje hexagonal</strong></td>
+<td>Seguridad: <strong>servicio externo</strong> (Keycloak); Analítica/BI: consume datos de los demás, no es un despliegue propio</td>
+<td>Son capas transversales de infraestructura, no módulos de dominio — se consumen desde los demás, no se construyen con el mismo criterio.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Decisión de topología, en una frase:</strong> el sistema arranca como <strong>monolito modular</strong> (Figura 2) para el core académico y <code>Finanzas del Estudiante</code> (core administrativo), con <code>Matrícula</code> y <code>Pagos en línea</code> como microservicios propios desde el diseño (escala el primero, canal de pago aislado el segundo) — <code>Admisión</code> no llega ni a construirse: se resuelve con un CRM externo por la misma razón de escala, sin pagar el costo de operar un servicio propio. <code>Institucional</code>/<code>Personas</code> no se mueve de la base bajo ninguna circunstancia: es lo único que absolutamente todo (interno y externo) necesita consultar.</p>
+<h2 id="c2-real-base-cores-excepciones">C2 real: base + cores + excepciones<a class="headerlink" href="#c2-real-base-cores-excepciones" title="Permanent link">&para;</a></h2>
+<p><strong>Figura 7. C2 (contenedores) con la decisión completa</strong></p>
+<pre class="mermaid"><code>flowchart TB
+    Cliente["Cliente (alumno)"]
+    Cajero["Cajero&lt;br/&gt;(personal de Finanzas del Estudiante)"]
+    Gateway["API Gateway"]
+    Keycloak["Keycloak (externo)"]
+
+    Cliente --&gt; Gateway
+    Cajero --&gt; Gateway
+    Gateway -.-&gt; Keycloak
+    Gateway -.-&gt; Admision["Admisión&lt;br/&gt;(CRM externo, ej. Bitrix24)"]
+    Gateway --&gt; CoreAcademico["Core académico&lt;br/&gt;Currículo, Planificación&lt;br/&gt;(monolito modular)"]
+    Gateway --&gt; Matricula["Matrícula&lt;br/&gt;(microservicio — escala)"]
+    Gateway --&gt; Finanzas["Finanzas del Estudiante&lt;br/&gt;(hexagonal — cargo + saldo)"]
+    Gateway --&gt; PagosOnline["Pagos en línea&lt;br/&gt;(integración con pasarela)"]
+
+    Matricula -.-&gt;|"catálogo, cupos, costo estimado"| CoreAcademico
+    Matricula -.-&gt;|"cursos elegidos + cuotas"| Finanzas
+    Finanzas -.-&gt;|"costo real, unidad organizacional"| CoreAcademico
+    PagosOnline -.-&gt;|"saldo del cargo / confirma pago"| Finanzas
+    PagosOnline -.-&gt; Pasarela["Pasarela de pago (externo)"]
+
+    ERP["ERP Administrativo (externo)"] -.-&gt;|"plan presupuestal (config.) / consulta ingresos"| Finanzas
+
+    Base["Base universal&lt;br/&gt;Personas, Institucional&lt;br/&gt;+22"]
+    CoreAcademico --&gt; Base
+    Matricula -.-&gt; Base
+    Finanzas -.-&gt; Base
+    Admision -.-&gt; Base
+    ERP -.-&gt; Base</code></pre>
+<p><strong>Cómo leer el diagrama:</strong> flecha sólida = llamada Java directa, mismo proceso (<code>Cliente</code>/<code>Cajero → Gateway</code>, <code>Gateway → *</code> por ser enrutamiento, y <code>Core académico → Base</code> porque ambos viven en el mismo monolito modular). Flecha punteada = HTTP, procesos distintos — todo lo demás, incluidos los tres microservicios propios (<code>Matrícula</code>, <code>Finanzas del Estudiante</code>, <code>Pagos en línea</code>) y los cuatro sistemas externos (<code>Keycloak</code>, <code>Admisión</code>, <code>ERP Administrativo</code>, <code>Pasarela</code>). Cada flecha muestra una dependencia, no una secuencia de pasos — el orden real de la conversación está en la lista de abajo.</p>
+<p><strong>Quién es quién:</strong></p>
+<ul>
+<li><strong>Base universal</strong> (<code>Personas</code>, <code>Institucional</code>, +22): la consulta literalmente todo el sistema, interno y externo. Vive en el monolito modular.</li>
+<li><strong>Core académico</strong> (<code>Currículo</code>, <code>Planificación</code>): también en el monolito modular, un escalón más específico que la base.</li>
+<li><strong><code>Matrícula</code></strong>: microservicio propio por <strong>escala</strong> (picos en periodo de matrícula), no por complejidad de dominio — sigue organizada por capas por dentro.</li>
+<li><strong><code>Admisión</code></strong>: incluso con el mismo problema de escala (examen/resultados), <strong>no se construye</strong> — se resuelve con un CRM externo (ej. Bitrix24), igual que Keycloak resuelve seguridad.</li>
+<li><strong><code>Finanzas del Estudiante</code></strong> (dominio 9): el core administrativo real — dueño del cargo y el saldo del estudiante, hexagonal desde el inicio. <code>Cajero</code> es su propio personal, no un servicio aparte.</li>
+<li><strong><code>Pagos en línea</code></strong> (parte del dominio 11): un servicio delgado y separado de <code>Finanzas del Estudiante</code> — solo intermedia con la <code>Pasarela</code>, no crea cargos ni decide descuentos.</li>
+<li><strong><code>ERP Administrativo</code></strong>: sistema externo (contabilidad, RRHH, tesorería) — nunca se construye, solo se integra.</li>
+</ul>
+<p><strong>El flujo, de punta a punta:</strong></p>
+<ol>
+<li>La gerencia aprueba el plan presupuestal en <code>ERP Administrativo</code> (tarifa por crédito, política de becas). De ahí baja, en una sola dirección y por adelantado (no por transacción), el tarifario y las reglas de descuento que <code>Finanzas del Estudiante</code> deja configurados para todo el periodo.</li>
+<li>El alumno elige cursos y número de <strong>cuotas</strong> en <code>Matrícula</code>, consultando a <code>Core académico</code> el catálogo, los cupos y un costo estimado (para mostrar en pantalla).</li>
+<li><code>Matrícula</code> le pasa a <code>Finanzas del Estudiante</code> los cursos elegidos (los IDs, no un monto) más el número de cuotas.</li>
+<li><code>Finanzas del Estudiante</code> <strong>no confía en el estimado de <code>Matrícula</code></strong> — vuelve a consultar <code>Core académico</code> el costo real de cada curso, y de paso obtiene el programa y la facultad/escuela a la que pertenece (dato que guarda como <strong>unidad organizacional</strong>, junto al <strong>tipo de concepto</strong>: matrícula o enseñanza).</li>
+<li>Con el costo real y sus descuentos aplicados, <code>Finanzas del Estudiante</code> genera el <strong>cargo de matrícula</strong> (a pagar ahora) y programa los <strong>cargos de enseñanza</strong> de los meses siguientes, uno por cuota elegida — estos últimos existen ya, pero no se cobran todavía.</li>
+<li>El alumno cubre el cargo de matrícula con uno o ambos canales: <code>Pagos en línea</code> (que antes de cobrar verifica el saldo con <code>Finanzas</code> y después le confirma el pago) o directo en ventanilla (<code>Cajero</code>). Se puede combinar — por ejemplo, 60% online y 40% en caja.</li>
+<li>Cuando el saldo del cargo de matrícula llega a cero, <code>Finanzas del Estudiante</code> lo hace saber y <code>Matrícula</code> queda confirmada. Los cargos de enseñanza de los meses siguientes se cobran igual, por los mismos canales, sin volver a pasar por <code>Matrícula</code>.</li>
+</ol>
+<p><strong>Tres aclaraciones que ya se corrigieron una vez y vale la pena dejar explícitas:</strong></p>
+<ul>
+<li><strong><code>Finanzas del Estudiante</code> no conoce ninguna cuenta contable.</strong> Cada cargo lleva concepto y unidad organizacional — lenguaje del negocio académico. Traducir eso a cuenta contable y centro de costo es trabajo del <code>ERP Administrativo</code>, con su propio plan de cuentas, cuando consulta ingresos — nunca antes.</li>
+<li><strong><code>Matrícula</code> y <code>Pagos en línea</code> no se llaman entre sí.</strong> Cada uno depende de <code>Finanzas del Estudiante</code> por separado — <code>Matrícula</code> para crear el cargo, <code>Pagos en línea</code> para cobrarlo. Meterlos en contacto directo (como el patrón clásico Orden→Pago) obligaría a <code>Matrícula</code> a cargar con lógica de cobranza que dura meses, no solo el pico de matrícula que la justifica.</li>
+<li><strong>El agregado real de <code>Finanzas del Estudiante</code></strong> es "un cargo de matrícula + N cargos de enseñanza programados", cada uno con su propio saldo (2.11, más arriba) — con dos invariantes: la suma de pagos de un cargo nunca supera su monto, y la matrícula se confirma solo con el cargo de matrícula en cero (no los de enseñanza).</li>
+</ul>
+<p>La Figura 7 dibuja 8 de los 22 dominios como muestra — el patrón (todo consulta la base, HTTP solo cuando hay una razón real de extraerse o reemplazarse por un externo) se repite igual para el resto.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
