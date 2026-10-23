@@ -30,7 +30,7 @@
         {
           "refId": "A",
           "datasource": { "type": "prometheus", "uid": "prometheus" },
-          "expr": "up{job=~\"pagatu-.*\"}",
+          "expr": "up{job=\"lamb-microservicios\"}",
           "instant": true,
           "format": "table"
         }
@@ -77,7 +77,7 @@
         {
           "refId": "A",
           "datasource": { "type": "loki", "uid": "loki" },
-          "expr": "{application=~\"lamb-.*|pagatu-.*\"} |= \"$traceId\""
+          "expr": "{application=~\"lamb-.*\"} |= \"$traceId\""
         }
       ]
     }

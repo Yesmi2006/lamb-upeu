@@ -8,12 +8,6 @@ clients:
   - url: http://pagatu-loki:3100/loki/api/v1/push
 
 scrape_configs:
-  - job_name: pagatu-catalogo-ms
-    static_configs:
-      - targets: [localhost]
-        labels:
-          application: pagatu-catalogo-ms
-          __path__: /var/log/pagatu-catalogo-ms/*.log
   - job_name: lamb-matricula-ms
     static_configs:
       - targets: [localhost]
@@ -26,9 +20,21 @@ scrape_configs:
         labels:
           application: lamb-planificacion-ms
           __path__: /var/log/lamb-planificacion-ms/*.log
-  - job_name: pagatu-pago-ms
+  - job_name: lamb-finanzas-ms
     static_configs:
       - targets: [localhost]
         labels:
-          application: pagatu-pago-ms
-          __path__: /var/log/pagatu-pago-ms/*.log
+          application: lamb-finanzas-ms
+          __path__: /var/log/lamb-finanzas-ms/*.log
+  - job_name: lamb-gateway
+    static_configs:
+      - targets: [localhost]
+        labels:
+          application: lamb-gateway
+          __path__: /var/log/lamb-gateway/*.log
+  - job_name: lamb-auth-ms
+    static_configs:
+      - targets: [localhost]
+        labels:
+          application: lamb-auth-ms
+          __path__: /var/log/lamb-auth-ms/*.log

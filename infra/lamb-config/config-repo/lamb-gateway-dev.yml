@@ -1,0 +1,47 @@
+server:
+  port: 18080
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8090/.well-known/jwks.json
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: lamb-auth-login
+              uri: lb://lamb-auth-ms
+              predicates:
+                - Path=/api/v1/auth/**
+            - id: lamb-planificacion-cursos
+              uri: lb://lamb-planificacion-ms
+              predicates:
+                - Path=/api/v1/cursos/**
+            - id: lamb-planificacion-secciones
+              uri: lb://lamb-planificacion-ms
+              predicates:
+                - Path=/api/v1/secciones/**
+            - id: lamb-matricula
+              uri: lb://lamb-matricula-ms
+              predicates:
+                - Path=/api/v1/matriculas/**
+
+eureka:
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:18761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

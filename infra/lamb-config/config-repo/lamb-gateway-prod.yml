@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: lamb-planificacion-cursos
+              uri: lb://lamb-planificacion-ms
+              predicates:
+                - Path=/api/v1/cursos/**
+            - id: lamb-planificacion-secciones
+              uri: lb://lamb-planificacion-ms
+              predicates:
+                - Path=/api/v1/secciones/**
+            - id: lamb-matricula
+              uri: lb://lamb-matricula-ms
+              predicates:
+                - Path=/api/v1/matriculas/**
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    service-url:
+      defaultZone: http://lamb-eureka:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: never

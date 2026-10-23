@@ -27,10 +27,9 @@ services:
     restart: unless-stopped
     volumes:
       - ./promtail/promtail-config.yml:/etc/promtail/config.yml:ro
-      - ../services/pagatu-catalogo-ms/logs:/var/log/pagatu-catalogo-ms:ro
       - ../services/lamb-matricula-ms/logs:/var/log/lamb-matricula-ms:ro
       - ../services/lamb-planificacion-ms/logs:/var/log/lamb-planificacion-ms:ro
-      - ../services/pagatu-pago-ms/logs:/var/log/pagatu-pago-ms:ro
+      - ../services/lamb-finanzas-ms/logs:/var/log/lamb-finanzas-ms:ro
     command: -config.file=/etc/promtail/config.yml
     depends_on:
       - pagatu-loki

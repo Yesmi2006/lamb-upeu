@@ -1,24 +1,30 @@
 # S10 — Observabilidad de Matrícula y Pagos (Lamb UPeU)
 
-Alcance: `lamb-matricula-ms` (8085) y `pagatu-pago-ms` (8086, servicio de pagos/finanzas real del proyecto).
+Alcance: `lamb-matricula-ms` (8085) y `lamb-finanzas-ms` (8086, antes `lamb-finanzas-ms`: servicio de pagos/finanzas real del proyecto).
 Estado de verificación: **los cambios no se compilaron ni ejecutaron en el entorno donde se prepararon**
 (sin acceso a Maven Central ni a Docker). Todo está "implementado, pendiente de verificación"
 hasta que ejecutes los pasos de la sección 3 en tu máquina.
+
+## 0. Renombrado a lamb-*
+
+Carpetas, `artifactId`, `spring.application.name`, archivos de `config-repo` y rutas del Gateway: `lamb-config`, `lamb-eureka`, `lamb-gateway`, `lamb-auth-ms`, `lamb-finanzas-ms` (antes `pagatu-*`). `pagatu-catalogo-ms` se quitó del proyecto.
+Se conservaron a propósito: bases de datos y contenedores Docker (`pagatu_*_db`, `pagatu-kafka-dev`, ...), usuarios semilla (`admin@pagatu.com`, `cliente@pagatu.com`, cambiarlos rompería Flyway) y el `group-id` de Kafka `pagatu-pago-ms` (cambiarlo haría que Kafka releyera todos los eventos). Los paquetes Java (`pe.edu.upeu.pago`, `pe.edu.upeu.auth`, ...) no se movieron.
+Los logs de finanzas ahora van a `logs/finanzas.log` y el job de Prometheus se llama `lamb-microservicios`.
 
 ## 1. Qué se cambió
 
 | Archivo | Cambio | Motivo (guía S10) |
 |---|---|---|
-| `infra/pagatu-config/config-repo/lamb-matricula-ms-dev.yml` / `-prod.yml` | `probes.enabled`, grupos `liveness` (`livenessState`) y `readiness` (`readinessState, db`) | 3.3 Health groups |
-| `infra/pagatu-config/config-repo/pagatu-pago-ms-dev.yml` / `-prod.yml` | Mismo bloque de health groups | 3.3 |
-| `infra/pagatu-config/config-repo/lamb-matricula-ms-prod.yml` | Se agregó `jwk-set-uri` (`http://pagatu-auth-ms:8080/...`), igual que `pagatu-pago-ms-prod.yml`. Sin él, el servicio no arranca en PROD (no hay `JwtDecoder`). | Corrección S07 |
+| `infra/lamb-config/config-repo/lamb-matricula-ms-dev.yml` / `-prod.yml` | `probes.enabled`, grupos `liveness` (`livenessState`) y `readiness` (`readinessState, db`) | 3.3 Health groups |
+| `infra/lamb-config/config-repo/lamb-finanzas-ms-dev.yml` / `-prod.yml` | Mismo bloque de health groups | 3.3 |
+| `infra/lamb-config/config-repo/lamb-matricula-ms-prod.yml` | Se agregó `jwk-set-uri` (`http://lamb-auth-ms:8080/...`), igual que `lamb-finanzas-ms-prod.yml`. Sin él, el servicio no arranca en PROD (no hay `JwtDecoder`). | Corrección S07 |
 | `services/lamb-matricula-ms/.../config/TraceIdRelayInterceptor.java` (nuevo) | `RequestInterceptor` de Feign que reenvía `X-Trace-ID` (lee el MDC que deja `CorrelationIdFilter`) hacia `lamb-planificacion-ms` | 3.4 Propagación de traceId |
 | `services/lamb-matricula-ms/.../service/MatriculaServiceImpl.java` | `log.info` al crear una matrícula (`matriculaId`, `idPersona`, `estado`, `totalCreditos`) | 2.4 logs útiles para diagnóstico |
 | `services/lamb-matricula-ms/.../service/PlanificacionConsultaService.java` | `log.info` en cada consulta a planificación | 3.5 evidencia de la llamada saliente con traceId |
 | `obs/compose-dev.yml`, `obs/compose.yml` | Volúmenes de logs de matrícula, planificación y pagos para Promtail | 3.2 Logs centralizados |
-| `obs/promtail/promtail-config-dev.yml`, `promtail-config.yml` | Jobs `lamb-matricula-ms`, `lamb-planificacion-ms`, `pagatu-pago-ms` (label `application`) | 3.2 |
+| `obs/promtail/promtail-config-dev.yml`, `promtail-config.yml` | Jobs `lamb-matricula-ms`, `lamb-planificacion-ms`, `lamb-finanzas-ms` (label `application`) | 3.2 |
 | `obs/grafana/...` (datasources con `uid`, provisioning y `dashboards/s10-diagnostico-lamb.json`) | Tablero con 4 paneles: servicios arriba, tasa de peticiones, tasa de errores 5xx, logs filtrables por traceId | 3.6 Tablero |
-| `infra/pagatu-config/config-repo/lamb-planificacion-ms-dev.yml` | **Cambio fuera de tu alcance, mínimo y reversible:** `DispatcherServlet: DEBUG` para que planificación registre cada petición con su traceId. Quítalo al terminar. | 3.5 Evidencia del mismo traceId en dos servicios |
+| `infra/lamb-config/config-repo/lamb-planificacion-ms-dev.yml` | **Cambio fuera de tu alcance, mínimo y reversible:** `DispatcherServlet: DEBUG` para que planificación registre cada petición con su traceId. Quítalo al terminar. | 3.5 Evidencia del mismo traceId en dos servicios |
 
 No se tocó: Gateway, Eureka, Config Server (código), autenticación, el código de planificación ni Prometheus
 (ya descubre a ambos servicios por Eureka con `eureka_sd_configs`).
@@ -27,14 +33,14 @@ No se tocó: Gateway, Eureka, Config Server (código), autenticación, el códig
 
 | Requisito de la guía | Estado |
 |---|---|
-| Keycloak como target de Prometheus y en Promtail | No aplica: el proyecto usa `pagatu-auth-ms` (puerto 8090), que sí se registra en Eureka. S07b (Keycloak) no está en el repositorio. |
-| `logback-spring.xml` del Gateway y su Promtail | Infraestructura compartida: responsable, quien administre `infra/pagatu-gateway`. No modificado. |
+| Keycloak como target de Prometheus y en Promtail | No aplica: el proyecto usa `lamb-auth-ms` (puerto 8090), que sí se registra en Eureka. S07b (Keycloak) no está en el repositorio. |
+| `logback-spring.xml` del Gateway y su Promtail | Infraestructura compartida: responsable, quien administre `infra/lamb-gateway`. No modificado. |
 | Health groups de `lamb-planificacion-ms` | Servicio de otro módulo; usa el mismo bloque YAML de la sección 1 si su responsable lo decide. |
 | Propagación del traceId por Kafka | La guía lo declara fuera de alcance (el MDC es por hilo). |
 
 ## 3. Cómo aplicar y verificar (PowerShell, rutas de tu equipo)
 
-Reinicia en este orden lo que cambió: `lamb-matricula-ms`, `pagatu-pago-ms`, `lamb-planificacion-ms` (los tres leen el Config Server al arrancar).
+Reinicia en este orden lo que cambió: `lamb-matricula-ms`, `lamb-finanzas-ms`, `lamb-planificacion-ms` (los tres leen el Config Server al arrancar).
 
 ### 3.1 Compilar matrícula
 
@@ -66,7 +72,7 @@ docker compose -f compose-dev.yml up -d
 ```
 
 Abre `http://localhost:13000` (admin/admin) → carpeta **Lamb UPeU** → **S10 - Diagnóstico de Lamb UPeU**.
-En Prometheus (`http://localhost:19090/targets`) deben aparecer `LAMB-MATRICULA-MS` y `PAGATU-PAGO-MS` en UP.
+En Prometheus (`http://localhost:19090/targets`) deben aparecer `LAMB-MATRICULA-MS` y `LAMB-FINANZAS-MS` en UP.
 
 ### 3.4 Propagación del traceId (mismo valor en dos logs)
 
@@ -85,13 +91,13 @@ En Grafana, escribe `S10-LAMB-001` en la variable **traceId** y el panel de logs
 
 ### 3.5 Falla simulada y diagnóstico (Matrícula → Pagos por Kafka)
 
-1. Ctrl+C en la consola de `pagatu-pago-ms`.
-2. En el tablero: **Servicios arriba** muestra `PAGATU-PAGO-MS` en 0 (o ausente) en menos de ~30 s.
+1. Ctrl+C en la consola de `lamb-finanzas-ms`.
+2. En el tablero: **Servicios arriba** muestra `LAMB-FINANZAS-MS` en 0 (o ausente) en menos de ~30 s.
 3. Crea una matrícula con el bloque de 3.4 (otro periodo, por ejemplo `2026-5`). Queda `REGISTRADA`: el evento `matricula.creada` se publicó, pero nadie lo consume.
-4. Levanta `pagatu-pago-ms` (`.\mvnw.cmd spring-boot:run`). Con el `matriculaId` de la respuesta (ejemplo 40), en el panel de logs:
+4. Levanta `lamb-finanzas-ms` (`.\mvnw.cmd spring-boot:run`). Con el `matriculaId` de la respuesta (ejemplo 40), en el panel de logs:
 
 ```
-{application="pagatu-pago-ms"} |= "matriculaId=40"
+{application="lamb-finanzas-ms"} |= "matriculaId=40"
 ```
 
 Debes ver `status=consumed` y `status=processed`; la matrícula pasa a `PAGADA`. No busques por traceId aquí: no viaja por Kafka.
@@ -100,8 +106,8 @@ Completa la Tabla 6 solo con lo que observes. Valores esperados, no evidencia: *
 
 ## 4. Discrepancias y riesgos encontrados (no se modificaron)
 
-1. **Nombre del servicio financiero.** El informe describe `lamb-finanzas-ms` (puerto 8087, `/api/v1/pagos`, estados `PENDIENTE/APROBADO/REEMBOLSADO/RECHAZADO`, `POST /{id}/reembolsar`); el pptx habla de `finanzas-estudiante-ms` e `ingresos-pagos-ms`. En el código existe solo `pagatu-pago-ms` (S08): `GET /api/v1/pagos` y `GET /api/v1/pagos/{id}`, único estado `VALIDADO`, sin reembolsos. No se renombró ni se inventaron endpoints ni estados; hay que decidir con el equipo cuál nombre es el vigente y actualizar el informe.
-2. **Choque de puertos.** El informe asigna 8086 a Evaluación y 8087 a Finanzas; `pagatu-pago-ms` usa 8086 en DEV. Si Evaluación corre a la vez, uno no arranca. No se cambió para no invalidar tus evidencias de S08.
+1. **Nombre del servicio financiero.** Decidido: `lamb-finanzas-ms` (nombre del informe de arquitectura). El informe aún dice puerto 8087, `/api/v1/pagos`, estados `PENDIENTE/APROBADO/REEMBOLSADO/RECHAZADO` y `POST /{id}/reembolsar`; el código tiene `GET /api/v1/pagos` y `GET /api/v1/pagos/{id}`, único estado `VALIDADO` y sin reembolsos. No se inventaron endpoints ni estados: actualiza el informe o implementa lo que falte con tu equipo.
+2. **Choque de puertos.** El informe asigna 8086 a Evaluación y 8087 a Finanzas; `lamb-finanzas-ms` usa 8086 en DEV. Si Evaluación corre a la vez, uno no arranca. No se cambió para no invalidar tus evidencias de S08.
 3. **Pagos sin Gateway ni autenticación.** El Gateway no tiene ruta `/api/v1/pagos/**` y `SecurityConfig` de pagos usa `permitAll()`, así que los GET de pagos son públicos en 8086.
 4. **Idempotencia (S09).** Si llega dos veces `matricula.creada`, la restricción `uk_pagos_matricula` hace fallar el consumidor. La guía de S09 no se adjuntó, así que no se verificó ni se implementó.
 5. **Estado `PAGADA`.** El informe documenta solo `REGISTRADA → CONFIRMADA/ANULADA`; el código agrega `PAGADA` (S08). Actualiza el informe.

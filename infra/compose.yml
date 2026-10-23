@@ -1,16 +1,16 @@
 name: pagatu-infra-prod
 
 services:
-  pagatu-config:
+  lamb-config:
     build:
-      context: ./pagatu-config
+      context: ./lamb-config
       dockerfile: Dockerfile
-    container_name: pagatu-config
+    container_name: lamb-config
     restart: unless-stopped
     ports:
       - "28888:8888"
     volumes:
-      - ./pagatu-config/config-repo:/config-repo
+      - ./lamb-config/config-repo:/config-repo
     environment:
       SERVER_PORT: 8888
       SPRING_PROFILES_ACTIVE: native
@@ -24,19 +24,19 @@ services:
     networks:
       - pagatu-prod-net
 
-  pagatu-eureka:
+  lamb-eureka:
     build:
-      context: ./pagatu-eureka
+      context: ./lamb-eureka
       dockerfile: Dockerfile
-    container_name: pagatu-eureka
+    container_name: lamb-eureka
     restart: unless-stopped
     ports:
       - "28761:8761"
     environment:
       SPRING_PROFILES_ACTIVE: prod
-      CONFIG_SERVER_URL: http://pagatu-config:8888
+      CONFIG_SERVER_URL: http://lamb-config:8888
     depends_on:
-      pagatu-config:
+      lamb-config:
         condition: service_healthy
     networks:
       - pagatu-prod-net
