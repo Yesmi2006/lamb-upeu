@@ -8,9 +8,9 @@ spring:
         jwt:
           jwk-set-uri: http://localhost:8090/.well-known/jwks.json
   datasource:
-    url: jdbc:postgresql://localhost:15435/pagatu_pago_db
-    username: pagatu
-    password: pagatu
+    url: jdbc:postgresql://localhost:15457/lamb_finanzas_db
+    username: lamb
+    password: lamb
     driver-class-name: org.postgresql.Driver
   flyway:
     enabled: true

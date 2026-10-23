@@ -1,18 +1,18 @@
-name: pagatu-auth-dev
+name: lamb-auth-dev
 
 services:
   postgres-auth-dev:
     image: postgres:16-alpine
-    container_name: pagatu-postgres-auth-dev
+    container_name: lamb-postgres-auth-dev
     restart: unless-stopped
     environment:
-      POSTGRES_DB: pagatu_auth_db
-      POSTGRES_USER: pagatu
-      POSTGRES_PASSWORD: pagatu
+      POSTGRES_DB: lamb_auth_db
+      POSTGRES_USER: lamb
+      POSTGRES_PASSWORD: lamb
     ports:
-      - "15431:5432"
+      - "15451:5432"
     volumes:
-      - pagatu_auth_dev_data:/var/lib/postgresql/data
+      - lamb_auth_dev_data:/var/lib/postgresql/data
 
 volumes:
-  pagatu_auth_dev_data:
+  lamb_auth_dev_data:

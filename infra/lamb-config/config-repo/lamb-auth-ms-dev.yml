@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:15431/pagatu_auth_db
-    username: pagatu
-    password: pagatu
+    url: jdbc:postgresql://localhost:15451/lamb_auth_db
+    username: lamb
+    password: lamb
     driver-class-name: org.postgresql.Driver
   flyway:
     enabled: true

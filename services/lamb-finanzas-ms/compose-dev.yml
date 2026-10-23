@@ -1,18 +1,18 @@
-name: pagatu-pago-dev
+name: lamb-finanzas-dev
 
 services:
-  postgres-pago-dev:
+  postgres-finanzas-dev:
     image: postgres:16-alpine
-    container_name: pagatu-postgres-pago-dev
+    container_name: lamb-postgres-finanzas-dev
     restart: unless-stopped
     environment:
-      POSTGRES_DB: pagatu_pago_db
-      POSTGRES_USER: pagatu
-      POSTGRES_PASSWORD: pagatu
+      POSTGRES_DB: lamb_finanzas_db
+      POSTGRES_USER: lamb
+      POSTGRES_PASSWORD: lamb
     ports:
-      - "15435:5432"
+      - "15457:5432"
     volumes:
-      - pagatu_pago_dev_data:/var/lib/postgresql/data
+      - lamb_finanzas_dev_data:/var/lib/postgresql/data
 
 volumes:
-  pagatu_pago_dev_data:
+  lamb_finanzas_dev_data:
