@@ -2,6 +2,23 @@ server:
   port: 8083
 
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8090/.well-known/jwks.json
+  kafka:
+    bootstrap-servers: localhost:19092
+    consumer:
+      group-id: lamb-planificacion-ms
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JacksonJsonDeserializer
+        spring.json.value.default.type: pe.edu.upeu.lamb.planificacion.event.MatriculaPagadaEvento
+        spring.json.trusted.packages: pe.edu.upeu.lamb.planificacion.event
+        spring.json.use.type.headers: false
   datasource:
     url: jdbc:postgresql://localhost:15453/lamb_planificacion_db
     username: lamb
@@ -30,6 +47,8 @@ springdoc:
 logging:
   level:
     pe.edu.upeu.lamb.planificacion: DEBUG
+    # S10: registra cada peticion HTTP con su traceId (evidencia de propagacion desde matricula). Quitar al terminar.
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
 
 management:
   endpoints:
@@ -47,3 +66,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:18761/eureka
+
+app:
+  kafka:
+    topic:
+      matriculas-pagadas: matricula-pagada-eventos

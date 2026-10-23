@@ -14,3 +14,21 @@ scrape_configs:
         labels:
           application: pagatu-catalogo-ms
           __path__: /var/log/pagatu-catalogo-ms/*.log
+  - job_name: lamb-matricula-ms
+    static_configs:
+      - targets: [localhost]
+        labels:
+          application: lamb-matricula-ms
+          __path__: /var/log/lamb-matricula-ms/*.log
+  - job_name: lamb-planificacion-ms
+    static_configs:
+      - targets: [localhost]
+        labels:
+          application: lamb-planificacion-ms
+          __path__: /var/log/lamb-planificacion-ms/*.log
+  - job_name: pagatu-pago-ms
+    static_configs:
+      - targets: [localhost]
+        labels:
+          application: pagatu-pago-ms
+          __path__: /var/log/pagatu-pago-ms/*.log

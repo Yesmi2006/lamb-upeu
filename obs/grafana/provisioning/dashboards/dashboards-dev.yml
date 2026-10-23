@@ -1,0 +1,11 @@
+apiVersion: 1
+
+providers:
+  - name: lamb-s10
+    orgId: 1
+    folder: Lamb UPeU
+    type: file
+    disableDeletion: false
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards

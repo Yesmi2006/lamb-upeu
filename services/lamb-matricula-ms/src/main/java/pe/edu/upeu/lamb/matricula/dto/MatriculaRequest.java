@@ -15,8 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 public class MatriculaRequest {
 
-    @NotNull
-    private Long idPersona;
 
     @NotBlank
     private String periodo;

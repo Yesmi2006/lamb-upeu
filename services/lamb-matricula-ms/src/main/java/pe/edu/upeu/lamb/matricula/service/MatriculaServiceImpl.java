@@ -1,30 +1,47 @@
 package pe.edu.upeu.lamb.matricula.service;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upeu.lamb.matricula.dto.*;
 import pe.edu.upeu.lamb.matricula.entity.DetalleMatricula;
 import pe.edu.upeu.lamb.matricula.entity.EstadoMatricula;
 import pe.edu.upeu.lamb.matricula.entity.Matricula;
+import pe.edu.upeu.lamb.matricula.event.MatriculaCreadaEvento;
 import pe.edu.upeu.lamb.matricula.exception.ResourceNotFoundException;
+import pe.edu.upeu.lamb.matricula.messaging.MatriculaEventosProducer;
+import pe.edu.upeu.lamb.matricula.messaging.MatriculaPagadaProducer;
+import pe.edu.upeu.lamb.matricula.event.MatriculaPagadaEvento;
 import pe.edu.upeu.lamb.matricula.repository.MatriculaRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class MatriculaServiceImpl implements MatriculaService {
 
     private final MatriculaRepository matriculaRepository;
     private final PlanificacionConsultaService planificacionConsultaService;
+    private final MatriculaEventosProducer producer;
+    private final MatriculaPagadaProducer pagadaProducer;
+
+    @Value("${app.matricula.tarifa-credito:50.00}")
+    private BigDecimal tarifaCredito;
+
+    @Value("${app.matricula.metodo-pago-defecto:TARJETA}")
+    private String metodoPagoDefecto;
 
     @Override
     @Transactional
-    public MatriculaResponse crear(MatriculaRequest request) {
+    public MatriculaResponse crear(MatriculaRequest request, Long idPersona) {
         Matricula matricula = Matricula.builder()
-                .idPersona(request.getIdPersona())
+                .idPersona(idPersona)
                 .periodo(request.getPeriodo())
                 .build();
 
@@ -46,8 +63,25 @@ public class MatriculaServiceImpl implements MatriculaService {
         }
 
         matricula.setDetalles(detalles);
-        // Estado inicial REGISTRADA: si alguna sección no se pudo validar, no se puede confirmar todavía.
-        return toResponse(matriculaRepository.save(matricula));
+        // Estado inicial REGISTRADA: si alguna seccion no se pudo validar, no se puede cobrar todavia.
+        Matricula guardada = matriculaRepository.save(matricula);
+        MatriculaResponse respuesta = toResponse(guardada);
+        log.info("component=service action=crear matriculaId={} idPersona={} periodo={} estado={} totalCreditos={}",
+                guardada.getId(), guardada.getIdPersona(), guardada.getPeriodo(), respuesta.getEstado(), respuesta.getTotalCreditos());
+
+        if (respuesta.getTotalCreditos() != null) {
+            BigDecimal monto = tarifaCredito.multiply(BigDecimal.valueOf(respuesta.getTotalCreditos()));
+            producer.publicarTrasCommit(MatriculaCreadaEvento.builder()
+                    .tipoEvento("matricula.creada")
+                    .matriculaId(guardada.getId())
+                    .idPersona(guardada.getIdPersona())
+                    .monto(monto)
+                    .metodoPago(metodoPagoDefecto)
+                    .origen("lamb-matricula-ms")
+                    .timestamp(Instant.now().toEpochMilli())
+                    .build());
+        }
+        return respuesta;
     }
 
     @Override
@@ -67,11 +101,11 @@ public class MatriculaServiceImpl implements MatriculaService {
     public MatriculaResponse confirmar(Long id) {
         Matricula matricula = buscar(id);
         if (matricula.getEstado() != EstadoMatricula.REGISTRADA) {
-            throw new IllegalStateException("Solo se puede confirmar una matrícula REGISTRADA");
+            throw new IllegalStateException("Solo se puede confirmar una matricula REGISTRADA");
         }
         boolean sinValidar = matricula.getDetalles().stream().anyMatch(d -> d.getCreditos() == null);
         if (sinValidar) {
-            throw new IllegalStateException("No se puede confirmar: hay secciones sin validar en Planificación");
+            throw new IllegalStateException("No se puede confirmar: hay secciones sin validar en Planificacion");
         }
         matricula.setEstado(EstadoMatricula.CONFIRMADA);
         return toResponse(matriculaRepository.save(matricula));
@@ -82,15 +116,37 @@ public class MatriculaServiceImpl implements MatriculaService {
     public MatriculaResponse anular(Long id) {
         Matricula matricula = buscar(id);
         if (matricula.getEstado() != EstadoMatricula.REGISTRADA) {
-            throw new IllegalStateException("Solo se puede anular una matrícula REGISTRADA");
+            throw new IllegalStateException("Solo se puede anular una matricula REGISTRADA");
         }
         matricula.setEstado(EstadoMatricula.ANULADA);
         return toResponse(matriculaRepository.save(matricula));
     }
 
+    @Override
+    @Transactional
+    public void marcarPagada(Long matriculaId) {
+        Matricula matricula = matriculaRepository.findById(matriculaId).orElse(null);
+        if (matricula == null || matricula.getEstado() != EstadoMatricula.REGISTRADA) {
+            log.warn("component=processor matriculaId={} status=ignored motivo=\"la matricula no existe o no esta REGISTRADA\"", matriculaId);
+            return;
+        }
+        matricula.setEstado(EstadoMatricula.PAGADA);
+        matriculaRepository.save(matricula);
+        pagadaProducer.publicarTrasCommit(MatriculaPagadaEvento.builder()
+                .tipoEvento("matricula.pagada")
+                .matriculaId(matricula.getId())
+                .idPersona(matricula.getIdPersona())
+                .periodo(matricula.getPeriodo())
+                .secciones(matricula.getDetalles().stream().map(d -> d.getIdSeccion()).toList())
+                .origen("lamb-matricula-ms")
+                .timestamp(java.time.Instant.now().toEpochMilli())
+                .build());
+        log.info("component=processor matriculaId={} estado={} status=processed", matriculaId, matricula.getEstado());
+    }
+
     private Matricula buscar(Long id) {
         return matriculaRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Matrícula no encontrada: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Matricula no encontrada: " + id));
     }
 
     private MatriculaResponse toResponse(Matricula m) {

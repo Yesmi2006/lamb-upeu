@@ -30,4 +30,8 @@ public class Seccion {
 
     @Column(name = "cupo_maximo", nullable = false)
     private Integer cupoMaximo;
+
+    @Column(name = "cupos_reservados", nullable = false)
+    @Builder.Default
+    private Integer cuposReservados = 0;
 }

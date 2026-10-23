@@ -23,11 +23,13 @@ public class PlanificacionConsultaService {
 
     @CircuitBreaker(name = "planificacion", fallbackMethod = "fallbackSeccion")
     public SeccionDto consultarSeccion(Long idSeccion) {
+        log.info("component=client target=lamb-planificacion-ms recurso=seccion id={} status=request", idSeccion);
         return seccionClient.findById(idSeccion);
     }
 
     @CircuitBreaker(name = "planificacion", fallbackMethod = "fallbackCurso")
     public CursoDto consultarCurso(Long idCurso) {
+        log.info("component=client target=lamb-planificacion-ms recurso=curso id={} status=request", idCurso);
         return cursoClient.findById(idCurso);
     }
 
